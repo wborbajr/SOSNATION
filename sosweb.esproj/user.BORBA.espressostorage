@@ -50,12 +50,6 @@
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/gmail.html</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
 				<string>file://localhost/Volumes/Projects/sites/sosweb/index.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
@@ -105,6 +99,30 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Volumes/Projects/sites/sosweb/php/systemConfig.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/.Trashes/501/login.action%202.js</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/index.action.js</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/lab.html</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/menu.inc.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

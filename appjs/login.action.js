@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	$("#usuario").focus();
-
+	
 	$("#cmd_login").click(function(){
 		$("#cmd_login").val("Validando");
 		

@@ -72,7 +72,7 @@ margin:10px 0px;
 
 #dv_top 
 {
-position: absolute;
+position: fixed;
 height: 30px;
 top: 0px;
 left: 0px;
@@ -80,11 +80,11 @@ right: 0px;
 background-color: #7799bb;
 }
 
-#dv_top_left
+#dv_top_left1
 {
-position: absolute;
+position: inherit;
 height: 30px;
-width: 300px;
+width: 150px;
 background-color: #7799bb;
 right: 0px;
 font-family: verdana, arial, sans-serif;
@@ -93,3 +93,28 @@ line-height: 30px;
 /*vertical-align: middle;
 display: table-cell;*/
 }
+
+#dv_top_left2
+{
+position: inherit;
+height: 30px;
+width: 50px;
+background-color: #7799bb;
+right: 0px;
+font-family: verdana, arial, sans-serif;
+font-size: 13px;
+}
+
+li
+{
+display: inline;
+list-style-type: none;
+padding-right: 8px;
+}
+
+dv_content 
+{
+margin-top: 45px;
+}
+
+
