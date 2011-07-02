@@ -21,10 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/assets</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/css</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/js</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/php</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/appjs</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -114,6 +111,6 @@
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.WorkspaceTabs.DisclosureCollapsed</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

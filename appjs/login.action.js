@@ -9,8 +9,6 @@ $(document).ready(function() {
 		var senha 	= $("#senha").val();
 		var dataString = 'usuario='+ usuario + '&senha=' + senha;
 		
-		// alert(dataString);
-		
 		$.ajax({
 			type: "POST",
 			url: "php/login.action.php",
@@ -18,16 +16,32 @@ $(document).ready(function() {
 			data: dataString,
 			timeout: 2000,
 			success: function(data){
-				alert("S " + data.status);
-				if(data.status == 101) {
-					alert("Error validating user...\n\n" + data.msg);
+				if(data.status == "000") {
+					window.location = 'index.html';
+				}else if(data.status == "101"){
+					$("#messageBox").removeClass().addClass("messageboxerror").html(data.message).fadeIn(2000).fadeOut(4000);
+				
+				
+//					$("#msgbox").html(data.message);
+//					$("#msgbox").fadeIn(400, function(){
+//						setTimeout(function(){
+//							$("#msgbox").fadeOut(300,function(){
+//								$("#msgbox").remove();	
+//							});
+//						},2500);
+//					});
+
+//					$("<div>").attr("id","message").html( data.message ).css({
+//						"position": "absolute",
+//						"top": "300px",
+//						"left": "1000px",
+//						"display": "none"
+//					}).addClass( data.success ? "ajax-success" : "ajax-error" ).appendTo("body").fadeIn().delay( 2500 ).fadeOut();
 				}
 				$("#cmd_login").val("Entrar");
 			},
-			error: function(data){
-				alert("E : " + data);
-				alert("Error validating user...\n\n" + data.status);
-				alert(inputs.join("&"));
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+				alert("Error : " + textStatus);
 			},
 			statusCode: {
 				404: function(){

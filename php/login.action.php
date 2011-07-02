@@ -45,7 +45,7 @@ function doLogin(){
 		// $personID 	= $data['id_person'];
 		// $personNAME = $data['name'];
 
-		$sessionData = array(
+		$sessionData[] = array(
 			'usuario'	=>	utf8_encode($usuario),
 			'data'		=>	$date,
 			'hora'		=>	$time
@@ -58,15 +58,16 @@ function doLogin(){
 			array('status' => 0)
 		); 
 	} else {
-		$return = array();
-		$return['status'] = 101;
-		$return['msg'] ='Usuário ou Senha incorreto.';
-		echo json_encode($return);
+	
+//		$return = array();
+//		$return['status'] = 101;
+//		$return['message'] ='Usuário ou Senha incorreto.';
+//		echo json_encode($return);
 				
-//		echo json_encode(array(
-//			'status' => 101,
-//			utf8_encode('msg')	=> 'Usuário ou Senha incorreto.'
-//		));
+		echo json_encode(array(
+			'status' => 101,
+			'message'=> utf8_encode('Usuário ou Senha incorreto.')
+		));
 		exit;
 		
 	}
