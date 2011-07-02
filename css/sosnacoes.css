@@ -1,0 +1,68 @@
+html {
+height: 100%;
+}
+
+body {
+height: 100%;
+background: #c3d9ff;
+color: white;
+border: 0px;
+font-family: verdana, arial, sans serif;
+font-weight: regular;
+font-size: 11pt;
+}
+
+input {
+background: #3366cc;
+color: white;
+border: 0px;
+font-family: verdana, arial, sans-serif;
+font-weight: regular;
+font-size: 11pt;
+}
+
+#dv_login { 
+padding: 40px; 
+position: absolute; 
+top: 50%; 
+left: 50%; 
+width: 420px; 
+height: 240px; 
+margin: -120px 0 0 -210px; 
+border: 5px solid #e8eef7; 
+background-color: #7799bb;
+box-shadow: 10px 10px 5px #888; 
+-moz-border-radius: 1em 4em 1em 4em;
+border-radius: 1em 4em 1em 4em;
+}
+
+.messagebox{
+position:absolute;
+width:100px;
+margin-left:30px;
+border:1px solid #c93;
+background:#ffc;
+padding:3px;
+}
+
+.messageboxok{
+position:absolute;
+width:auto;
+margin-left:30px;
+border:1px solid #349534;
+background:#C9FFCA;
+padding:3px;
+font-weight:bold;
+color:#008000;
+}
+
+.messageboxerror{
+position:absolute;
+width:auto;
+margin-left:30px;
+border:1px solid #CC0000;
+background:#F7CBCA;
+padding:3px;
+font-weight:bold;
+color:#CC0000;
+}
