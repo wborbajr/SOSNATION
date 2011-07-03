@@ -6,17 +6,39 @@ error_reporting(E_ALL);
 
 include ('Session.class.php');
 
-$session = new Session('SESSION_TOKEN');
+//$session = new Session('SESSION_TOKEN');
+
 
 $sessionData = array();
 $sessionData['user'] = 'borba_v2';
 $sessionData['time'] = '09:21';
 $sessionData['date'] = '14/06';
+$session = Session::createSession('SESSION_TOKEN',$sessionData);
 
-$session->createSession($sessionData);
+echo " xoxox:" . $session;
 
-$session->dumpSession();
+//
+//$session->createSession($sessionData);
+//
+Session::dumpSession('SESSION_TOKEN');
 
-$session->killSession();
+
+$sessionData = array();
+$sessionData['user'] = 'borba_v3';
+$sessionData['time'] = '09:21';
+$sessionData['date'] = '14/06';
+$session = Session::createSession('SESSION_TOKEN',$sessionData);
+
+
+//
+Session::killSession();
+
+$sessionData = array();
+$sessionData['user'] = 'borba_v3';
+$sessionData['time'] = '09:21';
+$sessionData['date'] = '14/06';
+$session = Session::createSession('SESSION_TOKEN',$sessionData);
+
+
 
 ?>

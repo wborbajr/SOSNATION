@@ -3,33 +3,43 @@
 class Session {
 
 	private $sessionToken;
-	public static $instance;
+	private static $instance;
 
-	public function __construct($sessionName) {
-		@session_cache_limiter('private');
-		@session_cache_expire(10);
-		@session_start(void);
-		
-		$this->sessionToken = $sessionName;
+	public function __construct() {
+		print 'This class '.__CLASS__.' cannot be instantiated.';
+//		@session_cache_limiter('private');
+//		@session_cache_expire(10);
+//		@session_start(void);
+//		
+//		$this->sessionToken = $sessionName;
 	}
 	
-	public function createSession($sessionObj) {
-		try {
-			$_SESSION[$this->sessionToken] = $sessionObj;
-			//throw new Exception('Error creating session token.');
-		} catch(Exception $e) {
-			die('Exception: ' . $e->getMessage());
+	public static function createSession($sessionToken, $sessionObj) {
+	
+		if(!isset(self::$instance)){
+			self::$instance = @session_start(void);
+			$_SESSION[$sessionToken] = $sessionObj;
 		}
+	
+		return self::$instance;
+	
+//		try {
+//			$_SESSION[$this->sessionToken] = $sessionObj;
+			//throw new Exception('Error creating session token.');
+//		} catch(Exception $e) {
+//			die('Exception: ' . $e->getMessage());
+//		}
 	}
 
 	public function validateSession() {
 	}
 	
-	public function dumpSession() {
+	public function dumpSession($sessionToken) {
 //		if(isset($_SESSION[$this->sessionToken])) {
 			try {
-				var_dump($_SESSION[$this->sessionToken]);
-				throw new Exception('Error dumping session');
+				@session_start(void);
+				var_dump($_SESSION[$sessionToken]);
+//				throw new Exception('Error dumping session');
 			} catch (Exception $e) {
 				die('Exception: ' . $e->getMessage());
 			}
@@ -38,7 +48,9 @@ class Session {
 	
 	public function killSession() {
 		@session_destroy(void);
-		@session_unset(void);		
+		@session_unset(void);
+		
+		self::$instance = null;
 	}
 	
 
