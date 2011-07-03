@@ -1,0 +1,27 @@
+#order deny,allow
+#deny from all
+#allow from 127.0.0.1
+
+#Options +Indexes # enables Directory listing
+#Options –Indexes # disables directory listing
+
+#just create an empty directory list
+#IndexIgnore *
+
+#to skip all gif, zip and txt files from the directory list
+#IndexIgnore *.gif *.zip *.txt
+
+ErrorDocument 404 /404/index.html
+#ErrorDocument 404 http://localhost/Nilesh/notfound.html
+
+#--- friendly url
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(!.(\.gif|\.jpg|\.png|\.css|\.js|\.txt|\.php|\.htm|\.html)|.+[^/])$ /$1/ [L]
+#RewriteRule ^([^-]+)/$ /funcao.php?frase=$1&%{QUERY_STRING} [L]
+#
+
+#Options +FollowSymlinks
+#RewriteEngine on
+#RewriteRule ^(.*)\.htm$ $1.php [nc]

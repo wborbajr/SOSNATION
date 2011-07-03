@@ -21,21 +21,6 @@ font-weight: regular;
 font-size: 11pt;
 }
 
-#dv_login { 
-padding: 40px; 
-position: absolute; 
-top: 50%; 
-left: 50%; 
-width: 420px; 
-height: 240px; 
-margin: -120px 0 0 -210px; 
-border: 5px solid #e8eef7; 
-background-color: #7799bb;
-box-shadow: 10px 10px 5px #888; 
--moz-border-radius: 1em 4em 1em 4em;
-border-radius: 1em 4em 1em 4em;
-}
-
 .messagebox{
 position:absolute;
 width:100px;
@@ -70,40 +55,62 @@ padding:5px;
 margin:10px 0px;
 }
 
-#dv_top 
-{
-position: fixed;
-height: 30px;
-top: 0px;
+/* screen */
+#head{
+position: absolute;
 left: 0px;
+top: 0px;
 right: 0px;
 background-color: #7799bb;
+height: 30px;
 }
 
-#dv_top_left1
+#userinfo
 {
-position: inherit;
+position: absolute;
 height: 30px;
 width: 150px;
 background-color: #7799bb;
-right: 0px;
+right: 45px;
 font-family: verdana, arial, sans-serif;
 font-size: 13px;
 line-height: 30px;
-/*vertical-align: middle;
-display: table-cell;*/
+border-color: #ffaacc;
+border-left: 1px dotted;
+border-right: 1px dotted;
 }
 
-#dv_top_left2
+#logout
 {
-position: inherit;
+position: absolute;
 height: 30px;
-width: 50px;
+width: 30px;
 background-color: #7799bb;
-right: 0px;
+right: 5px;
 font-family: verdana, arial, sans-serif;
 font-size: 13px;
+line-height: 30px;
 }
+
+#menu
+{
+position: absolute;
+top: 30px;
+left: 0px;
+right: 0px;
+background-color: #e8eef7;
+height: 60px;
+
+}
+
+#content{
+position: absolute;
+top: 91px;
+left: 0px;
+right: 0px;
+background-color: #c3d9ff;
+}
+/* screen */
 
 li
 {
@@ -112,9 +119,66 @@ list-style-type: none;
 padding-right: 8px;
 }
 
-dv_content 
-{
-margin-top: 45px;
+li
+{ 
+list-style:none;
+padding-top:10px;
+padding-bottom:10px;
 }
 
+.button, .button:visited 
+{
+background: #222 url(overlay.png) repeat-x; 
+display: inline-block; 
+padding: 5px 10px 6px; 
+color: #fff; 
+text-decoration: none;
+-moz-border-radius: 6px; 
+-webkit-border-radius: 6px;
+-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+border-bottom: 1px solid rgba(0,0,0,0.25);
+position: relative;
+cursor: pointer
+}
+
+.button:hover
+{
+background-color: #111; 
+color: #fff; 
+}
+.button:active
+{
+top: 1px;
+}
+.small.button, .small.button:visited
+{
+font-size: 11px
+}
+.button, .button:visited, .medium.button, .medium.button:visited
+{
+font-size: 13px; 
+font-weight: bold; 
+line-height: 1; 
+text-shadow: 0 -1px 1px rgba(0,0,0,0.25); 
+}
+.large.button, .large.button:visited
+{
+font-size: 14px; 
+padding: 8px 14px 9px;
+}
+.super.button, .super.button:visited
+{
+font-size: 34px; 
+padding: 8px 14px 9px;
+}
+.blue.button, .blue.button:visited
+{
+background-color: #2981e4;
+}
+.blue.button:hover
+{
+background-color: #2575cf;
+}
 

@@ -1,0 +1,15 @@
+html, body{
+	font-family: verdana, arial, sans-serif;
+	font-size: 12px;
+}
+
+#dv_screen{
+border: 5px solid #e8eef7; 
+background-color: #7799bb;
+box-shadow: 10px 10px 5px #888; 
+-moz-border-radius: 2em 1em;
+border-radius: 2em 1em;
+padding: 5px 5px 5px 15px;
+/*width: 850px;*/
+/*height: 450px;*/
+}
