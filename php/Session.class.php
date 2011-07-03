@@ -14,10 +14,14 @@ class Session {
 //		$this->sessionToken = $sessionName;
 	}
 	
-	public static function createSession($sessionToken, $sessionObj) {
+	public static function createSession($sessionToken, $sessionObj, $sessionExpire) {
 	
 		if(!isset(self::$instance)){
+			@session_cache_limiter('private');
+			@session_cache_expire($sessionExpire);
+	
 			self::$instance = @session_start(void);
+	
 			$_SESSION[$sessionToken] = $sessionObj;
 		}
 	

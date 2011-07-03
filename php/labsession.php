@@ -13,7 +13,7 @@ $sessionData = array();
 $sessionData['user'] = 'borba_v2';
 $sessionData['time'] = '09:21';
 $sessionData['date'] = '14/06';
-$session = Session::createSession('SESSION_TOKEN',$sessionData);
+$session = Session::createSession('SESSION_TOKEN',$sessionData, 10);
 
 echo " xoxox:" . $session;
 
