@@ -1,5 +1,9 @@
 <?php
 
+@include ('Sesison.class.php');
+
+$_COOKIE
+
 session_start();
 @session_destroy();
 @session_unset();
