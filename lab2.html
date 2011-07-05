@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<style type="text/css">
+#col1 {
+width:150px;
+float:left;
+}
+#col2 {
+width:200px;
+float:left;
+}
+label, input {
+display:block;
+}
+label {
+height:25px;
+}
+#col2 textarea, #col2 input {
+width:100%;
+}
+form {
+margin:0;
+} 
+p {
+width:350px;
+text-align:center;
+clear:left;
+margin:10px 0;
+}
+p input {
+display:inline;
+}
+</style>
+</head>
+
+<body>
+<form action="#" method="post">
+<div id="col1">
+<label for="fname">First Name</label>
+<label for="lname">Last Name</label>
+<label for="email">Email</label>
+<label for="comments">Comments</label>
+</div>
+<div id="col2">
+<input type="text" name="fname" id="fname">
+<input type="text" name="lname" id="lname">
+<input type="text" name="email" id="email">
+<textarea name="comments" id="comments"cols="15" rows="6"></textarea>
+</div>
+<p><input type="submit" value="Submit">&nbsp;&nbsp;<input type="reset" value="Reset"></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,88 @@
+#pagewrapper {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	clear: both;
+	}
+#hdr {
+	background-color: #cccc99;
+	text-align: center;
+	width: 600px;
+	height: 60px;
+	}
+div.formwrapper {
+	clear: both;
+	width: 600px;
+	height: 180px;
+	}
+div.formwrapper form {
+	clear: both 
+	}
+div.formwrapper form span.label {
+	display: block;
+	float: left;
+	margin: 1px 0 0 0;
+	padding: 4px 6px 4px 2px;
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: right;
+	background-color: #cccc99;
+	}
+div.formwrapper form span.stdlbl {
+	width: 92px;
+	}
+div.formwrapper form span.widelbl {
+	width: 272px;
+	}
+ 
+div.formwrapper input, textarea {
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	border: 1px solid #808080;
+	}
+div.formwrapper form span.field {
+	display: block;
+	}
+div.formwrapper form span.stdfld {
+	width: 192px;
+	padding: 4px 6px 4px 2px;
+	text-align: left;
+	}
+div.formwrapper input.stdfld {
+	width: 178px;
+	margin: 2px 0px 2px 2px;
+	padding: 2px 6px 2px 2px;
+	text-align: left;
+	}
+div.formwrapper textarea.widefld {
+	width: 280px;
+	padding: 2px 6px 2px 2px;
+	text-align: left;
+	}
+ 
+div.formwrapper div.fieldset {
+	float: left;
+	width: auto;
+	}
+ 
+ 
+ 
+div.formwrapper form span.left {
+	text-align: left; 
+	}
+div.formwrapper form span.empty {
+	background-color: #ffffff; 
+	}
+div.formwrapper #colleft {
+	float: left;
+	width: 300px;
+	}
+div.formwrapper #colright {
+	float: left;
+	width: 300px;
+	}
+h1 {
+	padding-top: 12px;
+	}

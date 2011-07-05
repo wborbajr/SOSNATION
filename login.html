@@ -24,17 +24,21 @@
 <body>
 
 <div id="dv_login">
+	<div class="messagebox" style="display:none" id="messageBox">aljaldjalsd</div>
 	<form id="frm_login" action="" method="POST">
-		<label for="usuario">Usuário:</label><br />
-		<input id="usuario" value="" type="text"/><br />
-		<label for="senha">Senha:</label><br />
-		<input id="senha" value="" type="password" /><br />
-<!--		<input type="button" value="Entrar" id="cmd_login"/>-->
+		<fieldset class="login"> 
+			<legend>Acesso ao Sistema</legend> 
+			<div> 
+				<label for="username">Usuário: </label> <input type="text" id="usuario" > 
+			</div> 
+			<div> 
+				<label for="password">Senha: </label> <input type="password" id="senha" > 
+			</div> 
+		</fieldset> 	
 		<button id="cmd_login" value="" type="button">Entrar</button>
-		<div class="messagebox" style="display:none" id="messageBox"></div>
 	</form>
-	<span><img src="assets/login.png" /></span>
 </div>
 
 </body>
 </html>
+<br />
