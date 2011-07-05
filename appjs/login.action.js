@@ -3,7 +3,7 @@ $(document).ready(function() {
 	$("#usuario").focus();
 	
 	$("#cmd_login").click(function(){
-		$("#cmd_login").val("Validando");
+		$("#cmd_login").html("Validando");
 		
 		var usuario = $("#usuario").val();
 		var senha 	= $("#senha").val();
@@ -21,7 +21,7 @@ $(document).ready(function() {
 				}else if(data.status == "101"){
 					$("#messageBox").removeClass().addClass("messageboxerror").html(data.message).fadeIn(2000).fadeOut(4000);
 				}
-				$("#cmd_login").val("Entrar");
+				$("#cmd_login").html("Entrar");
 			}
 //			,
 //			error: function(XMLHttpRequest, textStatus, errorThrown){
