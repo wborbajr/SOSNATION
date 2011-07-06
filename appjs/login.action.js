@@ -18,8 +18,9 @@ $(document).ready(function() {
 			success: function(data){
 				if(data.status == "000") {
 					window.location = 'index.html';
-				}else if(data.status == "101"){
+				} else {
 					$("#messageBox").removeClass().addClass("messageboxerror").html(data.message).fadeIn(2000).fadeOut(4000);
+					$("#cmd_login").html("Entrar");
 				}
 				$("#cmd_login").html("Entrar");
 			}

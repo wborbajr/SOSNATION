@@ -25,7 +25,7 @@ function doLogin(){
 	$isSenha 	= $functions->isNullOrEmpty($senha);
 
 	if(($isUsuario) || ($isSenha)) {
-		echo json_encode(array('status'=>100,utf8_encode('msg')=>'Usuário ou Senha sem conteúdo.'));
+		echo json_encode(array('status'=>100,utf8_encode('message')=>'Usuário ou Senha sem conteúdo.'));
 		exit;
 	}
 
@@ -66,7 +66,7 @@ function doLogin(){
 				
 		echo json_encode(array(
 			'status' => 101,
-			'message'=> utf8_encode('Usuário ou Senha incorreto.')
+			utf8_encode('message')=> 'Usuário ou Senha incorreto.'
 		));
 		exit;
 		
