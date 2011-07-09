@@ -20,9 +20,7 @@
 	<key>com.macrabbit.Espresso.FileManager.FileControllerState</key>
 	<dict>
 		<key>ExpandedURLs</key>
-		<array>
-			<string>file://localhost/Volumes/Projects/sites/sosweb</string>
-		</array>
+		<array/>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
 	<false/>
@@ -177,6 +175,12 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/calculate.js</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/lab3.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
