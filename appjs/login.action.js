@@ -23,16 +23,17 @@ $(document).ready(function() {
 					$("#cmd_login").html("Entrar");
 				}
 				$("#cmd_login").html("Entrar");
+			},
+			error: function(XMLHttpRequest, ajaxOptions, thrownError){
+				alert(XMLHttpRequest.status);
+				alert(thrownError);
+				alert(ajaxOptions + " [ " + thrownError + "] ");
+			},
+			statusCode: {
+				404: function(){
+					alert("page not found");
+				}	
 			}
-//			,
-//			error: function(XMLHttpRequest, textStatus, errorThrown){
-//				alert(textStatus + " [ " + errorThrown + "] ");
-//			},
-//			statusCode: {
-//				404: function(){
-//					alert("page not found");
-//				}	
-//			}
 		});
 	});
 });

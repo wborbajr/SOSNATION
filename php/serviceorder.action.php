@@ -20,7 +20,7 @@ function doSave(){
 
 	// recover parameter
 	$cliente 		= $_REQUEST['cliente'];
-	$fone   		= $_REQUEST['fone'];
+	$fone   			= $_REQUEST['fone'];
 	$veiculo 		= $_REQUEST['veiculo'];
 	$cor   			= $_REQUEST['cor'];
 	$placa 			= $_REQUEST['placa'];
@@ -32,7 +32,7 @@ function doSave(){
 	$pedagio 		= $_REQUEST['pedagio'];
 	$chklist   		= $_REQUEST['chklist'];
 	$nrpedido 		= $_REQUEST['nrpedido'];
-	$hacionamento   = $_REQUEST['hacionamento'];
+	$hacionamento  = $_REQUEST['hacionamento'];
 	$hconclusao   	= $_REQUEST['hconclusao'];
 	$folha 			= $_REQUEST['folha'];
 	$servico   		= $_REQUEST['servico'];
