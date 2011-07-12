@@ -133,8 +133,20 @@ var currencyFormat = {
 	}
 };
 
+var back = {
+	init : function(){
+		$('#cmd_back').live('click',function(){
+			$("#content").load("chamado-pesq.html");
+		});
+	}
+};
+
+
 // onLoad()
 $(document).ready(function() {
+
+	back.init();
+
 	populateAssistence.init();
 	
 	populateDriver.init();

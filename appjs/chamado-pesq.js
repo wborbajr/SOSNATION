@@ -1,4 +1,4 @@
-var searchMotorista = {
+var searchChamado = {
 	init : function(){
 		$('#cmd_search_assist').live('click',function(){
 			// values to send to backend
@@ -8,7 +8,7 @@ var searchMotorista = {
 			// save
 			$.ajax({
 				type: "POST",
-				url: "php/motorista.php",
+				url: "php/chamado.php",
 				dataType: "json",
 				data: dataString,				
 				timeout: 2000,
@@ -17,8 +17,9 @@ var searchMotorista = {
 						var content = '';
 						for(x=0; x<data.length; x++){
 							content += '<tr class="even">';
-							content += '<td>'+data[x].id+'</td>';
-							content += '<td>'+data[x].nome+'</td>';
+							content += '<td>'+data[x].nrpedido+'</td>';
+							content += '<td>'+data[x].assistencia+'</td>';
+							content += '<td>'+data[x].data+'</td>';
 							content += '</tr>';
 						}
 					}
@@ -37,17 +38,17 @@ var searchMotorista = {
 	}
 };
 
-var newMotorista = {
+var newChamado = {
 	init : function(){
-		$("#cmd_new_motorista").live("click",function(){
-			$("#content").load("motorista.html");
+		$("#cmd_new_chamado").live("click",function(){
+			$("#content").load("chamado.html");
 		});
 	}
 };
 
 // onLoad()
 $(document).ready(function() {
-	newMotorista.init();
+	newChamado.init();
 	
-	searchMotorista.init();
+	searchChamado.init();
 });

@@ -8,6 +8,9 @@ switch($action) {
 	case 'save':
 		doSave();
 		break;
+	case 'search':
+		doSearch();
+		break;
 	default:
 }
 
@@ -87,5 +90,43 @@ function doSave(){
 	}
 
 }
+
+function doSearch(){
+	@require_once ("include/functions.inc.php");
+	@require_once ("include/config.inc.php");
+	
+	$functions = new Functions();
+	
+	$ipaddress	=	$_SERVER['REMOTE_ADDR'];
+	$date		= 	date('d/m/Y');
+	$time		= 	date('H:i:s');
+	
+	// recover parameter
+	$nome = $_REQUEST['nome'];
+	
+	if(isset($nome)){
+		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido LIKE LOWER('%$nrpedido%')";
+	} else {
+		$sql  = "SELECT * FROM `serviceorder` ORDER BY assistencia, nrpedido";
+	}
+
+	// open connection to MySQL-server
+	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
+	
+	// select active database
+	mysql_select_db($DBname, $DBconn);
+	
+	// use SQL query
+	$result = mysql_query($sql, $DBconn);
+	
+	$return = array();
+	while ($dados = mysql_fetch_assoc($result)) {
+		array_push($return, $dados);
+	}
+
+	echo json_encode($return);
+
+}
+
 
 ?>

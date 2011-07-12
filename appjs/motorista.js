@@ -34,7 +34,20 @@ var saveMotorista = {
 	}
 };
 
+
+var back = {
+	init : function(){
+		$('#cmd_back').live('click',function(){
+			$("#content").load("motorista-pesq.html");
+		});
+	}
+};
+
+
 // onLoad()
 $(document).ready(function() {
+	
+	back.init();
+
 	saveMotorista	.init();
 });
