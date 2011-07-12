@@ -21,9 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/appjs</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/offline</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/php</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -34,31 +32,7 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/chamado.inc.html</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/chamado.action.js</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/assistencia.inc.html</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/login.action.js</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/php/serviceorder.action.php</string>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/chamado.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

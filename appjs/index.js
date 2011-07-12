@@ -5,15 +5,15 @@ $(document).ready(function() {
 
 	//	menu
 	$("#driver").live("click",function(){
-		$("#content").load("motorista.inc.html");
+		$("#content").load("motorista-pesq.html");
 	});
 	
 	$("#assistence").live("click",function(){
-		$("#content").load("assistencia.inc.html");
+		$("#content").load("assistencia-pesq.html");
 	});
 
 	$("#call").live("click",function(){
-		$("#content").load("chamado.inc.html");
+		$("#content").load("chamado-pesq.html");
 	});
 
 	//	logout

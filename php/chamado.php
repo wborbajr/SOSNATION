@@ -31,6 +31,7 @@ function doSave(){
 	$kmfinal  		= $_REQUEST['kmfinal'];
 	$pedagio 		= $_REQUEST['pedagio'];
 	$chklist   		= $_REQUEST['chklist'];
+	$assistencia 	= $_REQUEST['assistencia'];
 	$nrpedido 		= $_REQUEST['nrpedido'];
 	$hacionamento  = $_REQUEST['hacionamento'];
 	$hconclusao   	= $_REQUEST['hconclusao'];
@@ -39,6 +40,7 @@ function doSave(){
 	$motorista 		= $_REQUEST['motorista'];
 	$frota   		= $_REQUEST['frota'];
 	$observacao 	= $_REQUEST['observacao'];
+	$atendente		= $_REQUEST['atendente'];
 
 	$ip		=	$_SERVER['REMOTE_ADDR'];
 	$data	= 	date('Y-m-d');
@@ -54,12 +56,15 @@ function doSave(){
 
 	// validate Login
 	$sql  = "INSERT INTO `serviceorder` (cliente, fone, veiculo, cor, placa, local, ";
-	$sql .= "destino, valor, kminicial, kmfinal, pedagio, checklist, nrpedido, ";
-	$sql .= "hacionamento, hconclusao, folha, atendente, motorista, frota, observacao, ip, data, hora) ";
+	$sql .= "destino, valor, kminicial, kmfinal, pedagio, chklist, nrpedido, ";
+	$sql .= "hacionamento, hconclusao, folha, atendente, motorista, frota, observacao, ip, data, hora, assistencia) ";
 	$sql .= " VALUES ";
 	$sql .= " ('$cliente','$fone', '$veiculo', '$cor', '$placa', '$local', '$destino', ";
-	$sql .= "'$valor', '$kminicial', '$kmfinal', '$pedagio', '$checklist', '$nrpedido', ";
-	$sql .= "'$hacionamento', '$hconclusao', '$folha', '$atendente', '$motorista', '$frota', '$observacao', '$ip', '$data', '$hora') ";
+	$sql .= "'$valor', '$kminicial', '$kmfinal', '$pedagio', '$chklist', '$nrpedido', ";
+	$sql .= "'$hacionamento', '$hconclusao', '$folha', '$atendente', '$motorista', '$frota', '$observacao', '$ip', '$data', '$hora', '$assistencia') ";
+	
+	
+	echo $sql;
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);

@@ -21,3 +21,24 @@ width:10em;
 text-align:right;
 margin-right:1em;
 }
+
+#dv_assistencia_list{
+height: 300px;
+overflow: auto;
+}
+
+th{
+text-align: left;
+}
+
+thead tr.head th {
+background-color: #bbb;
+}
+
+tbody tr.even td {
+background-color: #eee;	
+}
+
+tbody tr.odd td {
+background-color: #fff;	
+}

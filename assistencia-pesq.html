@@ -1,0 +1,67 @@
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="css/forms.css"  /> 
+<!-- /css -->
+
+<!-- javascript -->
+<script type="text/javascript" src="appjs/session.action.js"></script>
+<script type="text/javascript" src="appjs/assistencia-pesq.js"></script>
+<!-- /javascript -->
+
+<div id="dv_screen">
+	p e s q u i s a - a s s i s t ê n c i a
+	
+<form id="frm_login" action="" method="POST">
+	<table border="0" cellpadding="2" cellspacing="2">
+		<tbody>
+			<tr>
+				<td><label>Assistência:</label></td>
+				<td width="60"><input type="text" id="nome" value="" size="42" maxlength="40"/> 
+				<td><button id="cmd_search_assist" value="" type="button"> Pesquisar</button></td>
+			</tr>
+
+		</tbody>
+	</table>
+</form>
+
+<div id="dv_assistencia_list">
+	<!-- search result -->
+	<table border="0" cellpadding="6" class="tbassist" frame="box">
+	<thead>
+		<tr class="head">
+		  <th width="100">Código</th>
+		  <th width="300">Nome</th>
+		</tr>
+	</thead>
+	<tbody id="dv_result"></tbody>
+	<tfoot>
+	   <tr>
+		  <td>&nbsp;</td>
+		  <td>&nbsp;</td>
+	   </tr>
+	</tfoot>
+	</table>
+	
+	<!--
+	<TABLE CELLPADDING=6 RULES=GROUPS  FRAME=BOX>
+	<THEAD>
+	<TR> <TH>Weekday</TH> <TH>Date</TH> <TH>Manager</TH> <TH>Qty</TH> </TR>
+	</THEAD>
+	<TBODY>
+	<TR> <TD>Mon</TD> <TD>09/11</TD> <TD>Kelsey</TD>  <TD>639</TD>  </TR>
+	<TR> <TD>Tue</TD> <TD>09/12</TD> <TD>Lindsey</TD> <TD>596</TD>  </TR>
+	<TR> <TD>Wed</TD> <TD>09/13</TD> <TD>Randy</TD>   <TD>1135</TD> </TR>
+	<TR> <TD>Thu</TD> <TD>09/14</TD> <TD>Susan</TD>   <TD>1002</TD> </TR>
+	<TR> <TD>Fri</TD> <TD>09/15</TD> <TD>Randy</TD>   <TD>908</TD>  </TR>
+	<TR> <TD>Sat</TD> <TD>09/16</TD> <TD>Lindsey</TD> <TD>371</TD>  </TR>
+	<TR> <TD>Sun</TD> <TD>09/17</TD> <TD>Susan</TD>   <TD>272</TD>  </TR>
+	</TBODY>
+	<TFOOT>
+	<TR> <TH ALIGN=LEFT COLSPAN=3>Total</TH> <TH>4923</TH> </TR>
+	</TFOOT>
+	</TABLE>
+	-->
+	
+	<button id="cmd_new_assist" value="" type="button"> Novo</button>
+</div>
+	
+</div>
