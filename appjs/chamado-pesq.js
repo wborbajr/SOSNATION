@@ -1,6 +1,6 @@
 var searchChamado = {
 	init : function(){
-		$('#cmd_search_assist').live('click',function(){
+		$('#cmd_search_chamado').live('click',function(){
 			// values to send to backend
 			var dataString = 'action=search'+
 			'&nrpedido='	+ $('#nrpedido').val();

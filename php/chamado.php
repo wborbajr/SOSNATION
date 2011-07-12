@@ -49,14 +49,6 @@ function doSave(){
 	$data	= 	date('Y-m-d');
 	$hora	= 	date('H:i:s');
 
-	// $isUsuario 	= $functions->isNullOrEmpty($usuario);
-	// $isSenha 	= $functions->isNullOrEmpty($senha);
-
-	// if(($isUsuario) || ($isSenha)) {
-	// 	echo json_encode(array('status'=>100,utf8_encode('msg')=>'Usuário ou Senha sem conteúdo.'));
-	// 	exit;
-	// }
-
 	// validate Login
 	$sql  = "INSERT INTO `serviceorder` (cliente, fone, veiculo, cor, placa, local, ";
 	$sql .= "destino, valor, kminicial, kmfinal, pedagio, chklist, nrpedido, ";
@@ -65,9 +57,6 @@ function doSave(){
 	$sql .= " ('$cliente','$fone', '$veiculo', '$cor', '$placa', '$local', '$destino', ";
 	$sql .= "'$valor', '$kminicial', '$kmfinal', '$pedagio', '$chklist', '$nrpedido', ";
 	$sql .= "'$hacionamento', '$hconclusao', '$folha', '$atendente', '$motorista', '$frota', '$observacao', '$ip', '$data', '$hora', '$assistencia') ";
-	
-	
-	echo $sql;
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
@@ -104,14 +93,12 @@ function doSearch(){
 	// recover parameter
 	$nrpedido = $_REQUEST['nrpedido'];
 	
-	if(isset($nrpedido)){
-		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido ='$nrpedido'";
+	if(is_null($nrpedido)){
+		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido = $nrpedido";
 	} else {
 		$sql  = "SELECT * FROM `serviceorder` ORDER BY assistencia, nrpedido";
 	}
 	
-	echo $sql;
-
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
 	

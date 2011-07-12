@@ -6,7 +6,7 @@ var populateAssistence = {
 		// populate assistence
 		$.ajax({
 			type: "POST",
-			url: "php/assistencia.action.php",
+			url: "php/assistencia.php",
 			dataType: "json",
 			data: dataString,				
 			timeout: 2000,
@@ -39,7 +39,7 @@ var populateDriver = {
 		// populate driver
 		$.ajax({
 			type: "POST",
-			url: "php/motorista.action.php",
+			url: "php/motorista.php",
 			dataType: "json",
 			data: dataString,				
 			timeout: 2000,
