@@ -102,13 +102,15 @@ function doSearch(){
 	$time		= 	date('H:i:s');
 	
 	// recover parameter
-	$nome = $_REQUEST['nome'];
+	$nrpedido = $_REQUEST['nrpedido'];
 	
-	if(isset($nome)){
-		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido LIKE LOWER('%$nrpedido%')";
+	if(isset($nrpedido)){
+		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido ='$nrpedido'";
 	} else {
 		$sql  = "SELECT * FROM `serviceorder` ORDER BY assistencia, nrpedido";
 	}
+	
+	echo $sql;
 
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);

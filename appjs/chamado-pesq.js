@@ -3,7 +3,7 @@ var searchChamado = {
 		$('#cmd_search_assist').live('click',function(){
 			// values to send to backend
 			var dataString = 'action=search'+
-			'&nome='	+ $('#nome').val();
+			'&nrpedido='	+ $('#nrpedido').val();
 			
 			// save
 			$.ajax({
