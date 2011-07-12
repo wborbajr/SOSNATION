@@ -91,12 +91,12 @@ function doSearch(){
 	$time		= 	date('H:i:s');
 	
 	// recover parameter
-	$nrpedido = $_REQUEST['nrpedido'];
+	$nrpedido = &$_REQUEST['nrpedido'];
 	
-	if(is_null($nrpedido)){
-		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido = $nrpedido";
-	} else {
+	if($nrpedido == null) {
 		$sql  = "SELECT * FROM `serviceorder` ORDER BY assistencia, nrpedido";
+	} else {
+		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido = '$nrpedido'";
 	}
 	
 	// open connection to MySQL-server

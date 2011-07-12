@@ -97,7 +97,7 @@ var saveChamado = {
 			// save
 			$.ajax({
 				type: "POST",
-				url: "php/chamado.action.php",
+				url: "php/chamado.php",
 				dataType: "json",
 				data: dataString,				
 				timeout: 2000,
