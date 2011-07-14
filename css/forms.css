@@ -36,9 +36,34 @@ background-color: #bbb;
 }
 
 tbody tr.even td {
-background-color: #eee;	
+background-color: #eee;
+font-family: verdana, arial, sans-serif;
+font-weight: bold;
+color: #000000;
+
 }
 
 tbody tr.odd td {
 background-color: #fff;	
 }
+/*
+table#tb_search {
+    border-collapse: collapse;   
+}
+#tb_search tr {
+    background-color: #eee;
+    border-top: 1px solid #fff;
+}
+#tb_search tr:hover {
+    background-color: #ccc;
+}
+#tb_search th {
+    background-color: #fff;
+}
+#tb_search th, #tb_search td {
+    padding: 3px 5px;
+}
+#tb_search td:hover {
+    cursor: pointer;
+}
+*/

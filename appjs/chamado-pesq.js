@@ -41,7 +41,12 @@ var searchChamado = {
 var newChamado = {
 	init : function(){
 		$("#cmd_new_chamado").live("click",function(){
-			$("#content").load("chamado.html");
+			$("#content").load("chamado.html", function(response, status, xhr) {
+			  if (status == "error") {
+			    var msg = "Sorry but there was an error: ";
+			    alert(msg + xhr.status + " " + xhr.statusText);
+			  }
+			 });
 		});
 	}
 };

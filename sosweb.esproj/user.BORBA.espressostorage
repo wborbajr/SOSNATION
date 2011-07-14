@@ -7,13 +7,13 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{1280, 697}</string>
+		<string>{1920, 1003}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Volumes/Projects/sites/sosweb/sosweb.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{0, 778}</string>
+		<string>{-1920, 800}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -21,7 +21,8 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Volumes/Projects/sites/sosweb</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/appjs</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/php/include</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -32,19 +33,13 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/chamado.html</string>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/motorista.js</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/chamado.js</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/php/chamado.php</string>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/php/motorista.php</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

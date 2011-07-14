@@ -5,7 +5,8 @@ var saveMotorista = {
 			
 			// values to send to backend
 			var dataString = 'action=save'+
-			'&nome='	+ $('#nome').val();
+				'&nome='	+ $('#nome').val()+
+				'&id=' + $('#id').val();
 			
 			// save
 			$.ajax({
@@ -15,18 +16,17 @@ var saveMotorista = {
 				data: dataString,				
 				timeout: 2000,
 				success: function(data){
-					if(data.status == "000") {
+					if(data.status == 0) {
 						alert('Gravado com sucesso');
 					}else{
 						alert('Erro ao gravar');
 					}
+				},
+				error: function(XMLHttpRequest, ajaxOptions, thrownError){
+					alert(XMLHttpRequest.status);
+					alert(thrownError);
+					alert(ajaxOptions + " [ " + thrownError + "] ");
 				}
-//				,
-//				error: function(XMLHttpRequest, ajaxOptions, thrownError){
-//					alert(XMLHttpRequest.status);
-//					alert(thrownError);
-//					alert(ajaxOptions + " [ " + thrownError + "] ");
-//				}
 			});
 			
 		});
@@ -34,15 +34,18 @@ var saveMotorista = {
 	}
 };
 
-
 var back = {
 	init : function(){
 		$('#cmd_back').live('click',function(){
-			$("#content").load("motorista-pesq.html");
+			$("#content").load("motorista-pesq.html", function(response, status, xhr) {
+			  if (status == "error") {
+			    var msg = "Sorry but there was an error: ";
+			    alert(msg + xhr.status + " " + xhr.statusText);
+			  }
+			 });
 		});
 	}
 };
-
 
 // onLoad()
 $(document).ready(function() {

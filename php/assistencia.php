@@ -14,6 +14,9 @@ switch($action) {
 	case 'search':
 		doSearch();
 		break;
+	case 'find':
+		findByCode();
+		break;
 	default:
 }
 
@@ -26,27 +29,18 @@ function doSave(){
 	$functions = new Functions();
 
 	// recover parameter
-	$nome 			= $_REQUEST['nome'];
+	$id	= $_REQUEST['id'];
+	$nome = $_REQUEST['nome'];
 
 	$ip		=	$_SERVER['REMOTE_ADDR'];
 	$data	= 	date('Y-m-d');
 	$hora	= 	date('H:i:s');
 
-	// $isUsuario 	= $functions->isNullOrEmpty($usuario);
-	// $isSenha 	= $functions->isNullOrEmpty($senha);
-
-	// if(($isUsuario) || ($isSenha)) {
-	// 	echo json_encode(array('status'=>100,utf8_encode('msg')=>'Usuário ou Senha sem conteúdo.'));
-	// 	exit;
-	// }
-
-	// validate Login
-	$sql  = "INSERT INTO `assistencia` (nome) ";
-	$sql .= " VALUES ";
-	$sql .= " ('$nome') ";
-	
-	
-	echo $sql;
+	if($id == null){
+		$sql  = "INSERT INTO `assistencia` (nome) VALUES ('$nome') ";
+	}else {
+		$sql  = "UPDATE `assistencia` SET nome = '$nome' WHERE id = '$id'";
+	}
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
@@ -69,7 +63,6 @@ function doSave(){
 	}
 
 }
-
 
 function getAll(){
 	@require_once ("include/functions.inc.php");
@@ -137,6 +130,39 @@ function doSearch(){
 		$return[] = $dados;
 	}
 	*/
+	
+	$return = array();
+	while ($dados = mysql_fetch_assoc($result)) {
+		array_push($return, $dados);
+	}
+
+	echo json_encode($return);
+
+}
+
+function findByCode(){
+	@require_once ("include/functions.inc.php");
+	@require_once ("include/config.inc.php");
+	
+	$functions = new Functions();
+	
+	$ipaddress	=	$_SERVER['REMOTE_ADDR'];
+	$date		= 	date('d/m/Y');
+	$time		= 	date('H:i:s');
+	
+	// recover parameter
+	$id = $_REQUEST['id'];
+	
+	$sql  = "SELECT * FROM `assistencia` WHERE id = '$id'";
+	
+	// open connection to MySQL-server
+	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
+	
+	// select active database
+	mysql_select_db($DBname, $DBconn);
+	
+	// use SQL query
+	$result = mysql_query($sql, $DBconn);
 	
 	$return = array();
 	while ($dados = mysql_fetch_assoc($result)) {
