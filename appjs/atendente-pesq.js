@@ -1,6 +1,6 @@
-var searchAssistencia = {
+var searchAtendente = {
 	init : function(){
-		$('#cmd_search_assist').live('click',function(){
+		$('#cmd_search_atendente').live('click',function(){
 			// values to send to backend
 			var dataString = 'action=search'+
 			'&nome='	+ $('#search').val();
@@ -8,42 +8,40 @@ var searchAssistencia = {
 			// save
 			$.ajax({
 				type: "POST",
-				url: "php/assistencia.php",
+				url: "php/atendente.php",
 				dataType: "json",
 				data: dataString,				
 				timeout: 2000,
 				success: function(data){
 					if(data.length >= 1){
 						var content = '';
-						alert(content);
 						for(x=0; x<data.length; x++){
 							content += '<tr class="even">';
-							content += '<td><a href=assistencia.html?id="'+data[x].id+'" target="frame_content">Detalhe</a></td>';
+							content += '<td><a href="'+data[x].id+'">Detalhe</a></td>';							
 							content += '<td>'+data[x].id+'</td>';
 							content += '<td>'+data[x].nome+'</td>';
 							content += '</tr>';
 						}
 					}
-					<a href="assistencia.html" target="frame_content">
 					
-					$("#result_assist").html(content);
+					$("#result_atendente").html(content);
 				}
-//				,
-//				error: function(XMLHttpRequest, ajaxOptions, thrownError){
-//					alert(XMLHttpRequest.status);
-//					alert(thrownError);
-//					alert(ajaxOptions + " [ " + thrownError + "] ");
-//				}
+				,
+				error: function(XMLHttpRequest, ajaxOptions, thrownError){
+					alert(XMLHttpRequest.status);
+					alert(thrownError);
+					alert(ajaxOptions + " [ " + thrownError + "] ");
+				}
 			});
 
 		});
 	}
 };
 
-var newAssistencia = {
+var newAtendente = {
 	init : function(){
-		$("#cmd_new_assist").live("click",function(){
-			$("#content").load("assistencia.html", function(response, status, xhr) {
+		$("#cmd_new_atendente").live("click",function(){
+			$("#content").load("atendente.html", function(response, status, xhr) {
 			  if (status == "error") {
 			    var msg = "Sorry but there was an error: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
@@ -63,12 +61,13 @@ var findByCode = {
 			// save
 			$.ajax({
 				type: "POST",
-				url: "php/assistencia.php",
+				url: "php/atendente.php",
 				dataType: "json",
 				data: dataString,				
 				timeout: 2000,
 				success: function(data){
-					$("#content").load("assistencia.html", function(response, status, xhr) {
+					
+					$("#content").load("atendente.html", function(response, status, xhr) {
 					  if (status == "error") {
 					    var msg = "Sorry but there was an error: ";
 					    alert(msg + xhr.status + " " + xhr.statusText);
@@ -77,13 +76,12 @@ var findByCode = {
 						 $('#nome').val(data[0].nome);
 					  }
 					 });
+				},
+				error: function(XMLHttpRequest, ajaxOptions, thrownError){
+					alert(XMLHttpRequest.status);
+					alert(thrownError);
+					alert(ajaxOptions + " [ " + thrownError + "] ");
 				}
-//				,
-//				error: function(XMLHttpRequest, ajaxOptions, thrownError){
-//					alert(XMLHttpRequest.status);
-//					alert(thrownError);
-//					alert(ajaxOptions + " [ " + thrownError + "] ");
-//				}
 			});
 			return false;
 		});
@@ -92,10 +90,10 @@ var findByCode = {
 
 // onLoad()
 $(document).ready(function() {
-	
+
 	findByCode.init();
 
-	//newAssistencia.init();
+	newAtendente.init();
 	
-	searchAssistencia.init();
+	searchAtendente.init();
 });

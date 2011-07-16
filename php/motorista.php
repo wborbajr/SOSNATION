@@ -29,6 +29,7 @@ function doSave(){
 
 	// recover parameter
 	$nome = $_REQUEST['nome'];
+	$cpf 	= $_REQUEST['cpf'];
 	$id 	= $_REQUEST['id'];
 
 	$ip		=	$_SERVER['REMOTE_ADDR'];
@@ -36,9 +37,9 @@ function doSave(){
 	$hora	= 	date('H:i:s');
 
 	if($id == null){
-		$sql  = "INSERT INTO `motorista` (nome) VALUES ('$nome') ";
+		$sql  = "INSERT INTO `motorista` (nome, cpf) VALUES ('$nome', '$cpf') ";
 	}else {
-		$sql  = "UPDATE `motorista` SET nome = '$nome' WHERE id = '$id'";
+		$sql  = "UPDATE `motorista` SET nome = '$nome', cpf = '$cpf' WHERE id = '$id'";
 	}
 	
 	// open connection to MySQL-server

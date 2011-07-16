@@ -21,12 +21,13 @@ var populateAssistence = {
 				content += '</select>';
 				
 				$("#dv_assistencia").html(content);
-			},
-			error: function(XMLHttpRequest, ajaxOptions, thrownError){
-				alert(XMLHttpRequest.status);
-				alert(thrownError);
-				alert(ajaxOptions + " [ " + thrownError + "] ");
 			}
+//			,
+//			error: function(XMLHttpRequest, ajaxOptions, thrownError){
+//				alert(XMLHttpRequest.status);
+//				alert(thrownError);
+//				alert(ajaxOptions + " [ " + thrownError + "] ");
+//			}
 		});
 	}
 };
@@ -68,31 +69,33 @@ var saveChamado = {
 	init : function(){
 	
 		$('#cmd_salvar').live("click",function(){
-			
 			// values to send to backend
 			var dataString = 'action=save'+
 			'&cliente='			+	$('#cliente').val()+
-			'&fone='				+	$('#fone').val()+
+			'&fone='			+	$('#fone').val()+
 			'&veiculo=' 		+	$('#veiculo').val()+
 			'&cor='   			+	$('#cor').val()+
 			'&placa=' 			+	$('#placa').val()+
 			'&local='   		+	$('#local').val()+
 			'&destino=' 		+	$('#destino').val()+
-			'&valor='   		+ 	$('#valor').val()+
+			'&valor='   		+ 	$('#valor').val().replace(',','.')+
 			'&kminicial=' 		+	$('#kminicial').val()+
 			'&kmfinal='  		+ 	$('#kmfinal').val()+
-			'&pedagio=' 		+ 	$('#pedagio').val()+
+			'&pedagio=' 		+ 	$('#pedagio').val().replace(',','.')+
 			'&chklist='   		+ 	$('#chklist').val()+
-			'&assistencia='	+ 	$('#assistencia').val()+
+			'&assistencia='		+ 	$('#assistencia').val()+
 			'&nrpedido=' 		+ 	$('#nrpedido').val()+
-			'&hacionamento='  + 	$('#hacionamento').val()+
+			'&hacionamento=' 	+ 	$('#hacionamento').val()+
 			'&hconclusao='   	+ 	$('#hconclusao').val()+
 			'&folha=' 			+ 	$('#folha').val()+
 			'&servico='   		+ 	$('#servico').val()+
 			'&motorista=' 		+ 	$('#motorista').val()+
 			'&frota='   		+ 	$('#frota').val()+
 			'&atendente='   	+ 	$('#atendente').val()+
-			'&observacao=' 	+ 	$('#observacao').val();
+			'&observacao=' 		+ 	$('#observacao').val()+
+			'&aceito=' 			+ 	$('#aceito').val();
+			
+			alert(dataString);
 			
 			// save
 			$.ajax({
@@ -133,17 +136,37 @@ var currencyFormat = {
 	}
 };
 
-var back = {
+var novoChamado = {
 	init : function(){
-		$('#cmd_back').live('click',function(){
-			$("#content").load("chamado-pesq.html");
+		$('#cmd_new').live('click',function(){
+			$('#content').load('chamado.html', function(response, status, xhr) {
+			  if (status == "error") {
+			    var msg = "Sorry but there was an error: ";
+			    alert(msg + xhr.status + " " + xhr.statusText);
+			  }
+			 });
 		});
 	}
 };
 
+var back = {
+	init : function(){
+		$('#cmd_back').live('click',function(){
+			$("#content").load("chamado-pesq.html", function(response, status, xhr) {
+			  if (status == "error") {
+			    var msg = "Sorry but there was an error: ";
+			    alert(msg + xhr.status + " " + xhr.statusText);
+			  }
+			 });
+			
+		});
+	}
+};
 
 // onLoad()
 $(document).ready(function() {
+
+	novoChamado.init();
 
 	back.init();
 

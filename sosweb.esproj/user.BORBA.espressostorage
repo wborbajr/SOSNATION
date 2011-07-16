@@ -13,7 +13,7 @@
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{-1920, 800}</string>
+		<string>{-1920, 798}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -22,7 +22,8 @@
 		<key>ExpandedURLs</key>
 		<array>
 			<string>file://localhost/Volumes/Projects/sites/sosweb/appjs</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/php/include</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/css</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/php</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -33,13 +34,25 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/motorista.js</string>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/motorista.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/php/motorista.php</string>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/motorista-pesq.html</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/assistencia.html</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/assistencia-pesq.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>

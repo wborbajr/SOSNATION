@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9.2
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 10, 2011 at 07:23 PM
--- Server version: 5.5.9
--- PHP Version: 5.3.5
+-- Servidor: localhost
+-- Tempo de Geração: Jul 15, 2011 as 12:47 
+-- Versão do Servidor: 5.5.8
+-- Versão do PHP: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,39 +16,40 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `sosnacoes`
+-- Banco de Dados: `sosnacoes`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assistencia`
+-- Estrutura da tabela `assistencia`
 --
 
 DROP TABLE IF EXISTS `assistencia`;
-CREATE TABLE `assistencia` (
+CREATE TABLE IF NOT EXISTS `assistencia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(40) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `assistencia`
+-- Extraindo dados da tabela `assistencia`
 --
 
-INSERT INTO `assistencia` VALUES(1, 'Liberty');
-INSERT INTO `assistencia` VALUES(2, 'Mondial');
-INSERT INTO `assistencia` VALUES(3, 'Sulamerica Seguros');
-INSERT INTO `assistencia` VALUES(4, 'Mapfre');
+INSERT INTO `assistencia` (`id`, `nome`) VALUES
+(1, 'Liberty'),
+(2, 'Mondial'),
+(3, 'Sulamerica Seguros'),
+(4, 'Mapfre');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Estrutura da tabela `login`
 --
 
 DROP TABLE IF EXISTS `login`;
-CREATE TABLE `login` (
+CREATE TABLE IF NOT EXISTS `login` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario` varchar(20) COLLATE utf8_bin NOT NULL,
   `senha` varchar(80) COLLATE utf8_bin NOT NULL,
@@ -57,22 +58,23 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `login`
+-- Extraindo dados da tabela `login`
 --
 
-INSERT INTO `login` VALUES(1, 'admin', 'admin', '1');
-INSERT INTO `login` VALUES(2, 'daiana', 'daiana', '1');
-INSERT INTO `login` VALUES(3, 'marco', 'marco', '1');
-INSERT INTO `login` VALUES(4, 'junior', 'junior', '1');
+INSERT INTO `login` (`id`, `usuario`, `senha`, `ativo`) VALUES
+(1, 'admin', 'admin', '1'),
+(2, 'daiana', 'daiana', '1'),
+(3, 'marco', 'marco', '1'),
+(4, 'junior', 'junior', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `motorista`
+-- Estrutura da tabela `motorista`
 --
 
 DROP TABLE IF EXISTS `motorista`;
-CREATE TABLE `motorista` (
+CREATE TABLE IF NOT EXISTS `motorista` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(40) COLLATE utf8_bin NOT NULL,
   `cpf` varchar(11) COLLATE utf8_bin NOT NULL,
@@ -82,21 +84,22 @@ CREATE TABLE `motorista` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `motorista`
+-- Extraindo dados da tabela `motorista`
 --
 
-INSERT INTO `motorista` VALUES(1, 'Marco', '', '', '');
-INSERT INTO `motorista` VALUES(2, 'Daiana', '', '', '');
-INSERT INTO `motorista` VALUES(3, 'Beto', '', '', '');
+INSERT INTO `motorista` (`id`, `nome`, `cpf`, `cnh`, `categoria`) VALUES
+(1, 'Marco', '', '', ''),
+(2, 'Daiana', '', '', ''),
+(3, 'Beto', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `serviceorder`
+-- Estrutura da tabela `serviceorder`
 --
 
 DROP TABLE IF EXISTS `serviceorder`;
-CREATE TABLE `serviceorder` (
+CREATE TABLE IF NOT EXISTS `serviceorder` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cliente` varchar(40) COLLATE utf8_bin NOT NULL,
   `fone` varchar(20) COLLATE utf8_bin NOT NULL,
@@ -124,10 +127,11 @@ CREATE TABLE `serviceorder` (
   `data` date NOT NULL,
   `hora` time NOT NULL,
   `assistencia` int(11) NOT NULL,
+  `aceito` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `serviceorder`
+-- Extraindo dados da tabela `serviceorder`
 --
 

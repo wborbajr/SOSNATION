@@ -23,7 +23,7 @@ function doSave(){
 
 	// recover parameter
 	$cliente 		= $_REQUEST['cliente'];
-	$fone   			= $_REQUEST['fone'];
+	$fone   		= $_REQUEST['fone'];
 	$veiculo 		= $_REQUEST['veiculo'];
 	$cor   			= $_REQUEST['cor'];
 	$placa 			= $_REQUEST['placa'];
@@ -36,7 +36,7 @@ function doSave(){
 	$chklist   		= $_REQUEST['chklist'];
 	$assistencia 	= $_REQUEST['assistencia'];
 	$nrpedido 		= $_REQUEST['nrpedido'];
-	$hacionamento  = $_REQUEST['hacionamento'];
+	$hacionamento  	= $_REQUEST['hacionamento'];
 	$hconclusao   	= $_REQUEST['hconclusao'];
 	$folha 			= $_REQUEST['folha'];
 	$servico   		= $_REQUEST['servico'];
@@ -44,7 +44,10 @@ function doSave(){
 	$frota   		= $_REQUEST['frota'];
 	$observacao 	= $_REQUEST['observacao'];
 	$atendente		= $_REQUEST['atendente'];
+	$aceito			= dataToDB($_REQUEST['aceito']);
 
+	echo $aceito;
+	
 	$ip		=	$_SERVER['REMOTE_ADDR'];
 	$data	= 	date('Y-m-d');
 	$hora	= 	date('H:i:s');
@@ -52,11 +55,14 @@ function doSave(){
 	// validate Login
 	$sql  = "INSERT INTO `serviceorder` (cliente, fone, veiculo, cor, placa, local, ";
 	$sql .= "destino, valor, kminicial, kmfinal, pedagio, chklist, nrpedido, ";
-	$sql .= "hacionamento, hconclusao, folha, atendente, motorista, frota, observacao, ip, data, hora, assistencia) ";
+	$sql .= "hacionamento, hconclusao, folha, atendente, motorista, frota, observacao, ip, data, hora, assistencia, aceito) ";
 	$sql .= " VALUES ";
 	$sql .= " ('$cliente','$fone', '$veiculo', '$cor', '$placa', '$local', '$destino', ";
 	$sql .= "'$valor', '$kminicial', '$kmfinal', '$pedagio', '$chklist', '$nrpedido', ";
-	$sql .= "'$hacionamento', '$hconclusao', '$folha', '$atendente', '$motorista', '$frota', '$observacao', '$ip', '$data', '$hora', '$assistencia') ";
+	$sql .= "'$hacionamento', '$hconclusao', '$folha', '$atendente', '$motorista', '$frota', ";
+	$sql .= "'$observacao', '$ip', '$data', '$hora', '$assistencia', '$aceito') ";
+	
+	echo $sql;
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
@@ -77,8 +83,18 @@ function doSave(){
 		exit;
 		
 	}
-
 }
+
+//função que formata a data
+function dataToDB($data)
+{
+	$data = explode('/', $data);
+	$data = $data[2].'-'.$data[1].'-'.$data[0];
+
+	//retorna a string da ordem correta, formatada
+	return $data;
+}
+ 
 
 function doSearch(){
 	@require_once ("include/functions.inc.php");
@@ -94,9 +110,11 @@ function doSearch(){
 	$nrpedido = &$_REQUEST['nrpedido'];
 	
 	if($nrpedido == null) {
-		$sql  = "SELECT * FROM `serviceorder` ORDER BY assistencia, nrpedido";
+		$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
+		$sql .= " WHERE s.assistencia = a.id ORDER BY s.assistencia, s.nrpedido";
 	} else {
-		$sql  = "SELECT * FROM `serviceorder` WHERE nrpedido = '$nrpedido'";
+		$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
+		$sql .= " WHERE s.assistencia = a.id AND nrpedido = '$nrpedido'";
 	}
 	
 	// open connection to MySQL-server

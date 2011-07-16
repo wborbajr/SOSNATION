@@ -18,15 +18,14 @@ var searchChamado = {
 						for(x=0; x<data.length; x++){
 							content += '<tr class="even">';
 							content += '<td>'+data[x].nrpedido+'</td>';
-							content += '<td>'+data[x].assistencia+'</td>';
-							content += '<td>'+data[x].data+'</td>';
+							content += '<td>'+data[x].nome+'</td>';
+							content += '<td>'+data[x].dtaceito+'</td>';
 							content += '</tr>';
 						}
 					}
 					
 					$("#dv_result").html(content);
-				}
-				,
+				},
 				error: function(XMLHttpRequest, ajaxOptions, thrownError){
 					alert(XMLHttpRequest.status);
 					alert(thrownError);

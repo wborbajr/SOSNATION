@@ -1,11 +1,17 @@
 $(document).ready(function() {
 	
-	// load menu
-	//$("#dv_status").load("menu.inc.html");
-
-	//	menu
+/*
 	$("#driver").live("click",function(){
 		$("#content").load("motorista-pesq.html", function(response, status, xhr) {
+		  if (status == "error") {
+		    var msg = "Sorry but there was an error: ";
+		    alert(msg + xhr.status + " " + xhr.statusText);
+		  }
+		 });
+	});
+	
+	$("#atendente").live("click",function(){
+		$("#content").load("atendente-pesq.html", function(response, status, xhr) {
 		  if (status == "error") {
 		    var msg = "Sorry but there was an error: ";
 		    alert(msg + xhr.status + " " + xhr.statusText);
@@ -21,15 +27,17 @@ $(document).ready(function() {
 		  }
 		 });
 	});
-
+*/
 	$("#call").live("click",function(){
-		$("#content").load("chamado-pesq.html", function(response, status, xhr) {
-		  if (status == "error") {
-		    var msg = "Sorry but there was an error: ";
-		    alert(msg + xhr.status + " " + xhr.statusText);
-		  }
-		 });
+		$('#frame_content').attr('src','chamado-pesq.html');
+//		$("#content").load("chamado-pesq.html", function(response, status, xhr) {
+//		  if (status == "error") {
+//		    var msg = "Sorry but there was an error: ";
+//		    alert(msg + xhr.status + " " + xhr.statusText);
+//		  }
+//		 });
 	});
+
 
 	//	logout
 	$("#logout").live("click",function(){
