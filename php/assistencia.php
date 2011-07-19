@@ -17,7 +17,62 @@ switch($action) {
 	case 'find':
 		findByCode();
 		break;
+	case 'delete':
+		delete();
+		break;
+	
 	default:
+}
+
+function delete(){
+
+	@require_once ("include/functions.inc.php");
+	@require_once ("include/config.inc.php");
+
+	$functions = new Functions();
+
+	// recover parameter
+	$nome 	= $_REQUEST['nome'];
+	$cpf 	= $_REQUEST['cpf'];
+	$id 	= $_REQUEST['id'];
+
+	$ip		=	$_SERVER['REMOTE_ADDR'];
+	$data	= 	date('Y-m-d');
+	$hora	= 	date('H:i:s');
+
+	$sql  = "SELECT atendente FROM `serviceorder` WHERE assistencia = '$id'";
+	
+	// open connection to MySQL-server
+	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
+	// select active database
+	mysql_select_db($DBname, $DBconn);
+	// use SQL query
+	$result = mysql_query($sql, $DBconn);
+	
+	if(mysql_affected_rows() >= 1) {
+		echo json_encode(array('status' => 300)); 
+	} else {
+		$sql  = "DELETE FROM `assistencia` WHERE id = '$id'";
+		
+		// open connection to MySQL-server
+		$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
+		// select active database
+		mysql_select_db($DBname, $DBconn);
+		// use SQL query
+		$result = mysql_query($sql, $DBconn);
+		
+		if(mysql_affected_rows() == 1) {
+			echo json_encode(array('status' => 0));
+		} else {
+			echo json_encode(array(
+				'status' => 200,
+				utf8_encode('msg')	=> 'ERRO: ao apagar registro do ASSISTÊNCIA.'
+			));
+			exit;
+		}
+		
+	}
+
 }
 
 

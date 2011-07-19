@@ -11,6 +11,7 @@
 <meta http-Equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/> 
 
 <!-- css -->
+<link rel="stylesheet" href="css/sosnacoes.css" type="text/css" /> 
 <link rel="stylesheet" href="css/forms.css" type="text/css" /> 
 <!-- /css -->
 
@@ -31,25 +32,24 @@
 		<tbody>
 			<tr>
 				<td><label>Atendente:</label></td>
-				<td width="60"><input type="text" id="search" value="" size="42" maxlength="40"/> 
-				<td><button id="cmd_search_atendente" value="" type="button"> Pesquisar</button></td>
+				<td><input type="text" id="search" value="" size="42" maxlength="40"/> 
+				<td><button id="cmd_search" value="" type="button"> Pesquisar</button></td>
 			</tr>
-
 		</tbody>
 	</table>
 	
-	<div id="dv_atendente_list">
+	<div id="dv_list">
 		<!-- search result -->
 		<table border="0" cellpadding="6" class="tbassist" frame="box" id="tb_search">
 		<thead>
 			<tr class="head">
 			  <th width="100"></th>
-			  <th width="100">Código</th>
+			  <th width="50">Código</th>
 			  <th width="300">Nome</th>
-			  <th width="100">CPF</th>
+			  <th width="200">CPF</th>
 			</tr>
 		</thead>
-		<tbody id="result_atendente"></tbody>
+		<tbody id="result"></tbody>
 		<tfoot>
 		   <tr>
 			  <td>&nbsp;</td>
@@ -60,7 +60,7 @@
 		</tfoot>
 		</table>
 			
-		<button id="cmd_new_atendente" value="" type="button"> Novo</button>
+		<a href="atendente.html" target="frame_content"><button id="cmd_new" value="" type="button"> Novo</button></a>
 	</div>
 	
 </div>

@@ -4,7 +4,7 @@
 <head>
 <title></title>
 
-<meta http-equiv="Content-Type" content="text/html; UTF-8" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <meta http-Equiv="Cache-Control" content="no-cache, no-store, must-revalidate, Post-Check=0, Pre-Check=0"/> 
 <meta http-Equiv="Pragma" content="no-cache, no-store, must-revalidate"/> 
 <meta http-Equiv="Expires" content="-1"/> 
@@ -18,7 +18,7 @@
 <!-- javascript -->
 <script type="text/javascript" src="js/jquery-1.6.2.min.js"> </script>
 <script type="text/javascript" src="appjs/session.action.js"> </script>
-<script type="text/javascript" src="appjs/motorista-pesq.js"></script>
+<script type="text/javascript" src="appjs/assistencia-pesq.js"></script>
 <!-- /javascript -->
 
 </head>
@@ -26,14 +26,14 @@
 <body>
 
 <div id="dv_screen">
-	p e s q u i s a - a s s i s t e n c i a
+	p e s q u i s a - a s s i s t ê n c i a
 	
 	<table border="0" cellpadding="2" cellspacing="2">
 		<tbody>
 			<tr>
-				<td><label>Motorista:</label></td>
+				<td><label>Assistência:</label></td>
 				<td width="60"><input type="text" id="search" value="" size="42" maxlength="40"/> 
-				<td><button id="cmd_search_motorista" value="" type="button"> Pesquisar</button></td>
+				<td><button id="cmd_search" value="" type="button"> Pesquisar</button></td>
 			</tr>
 
 		</tbody>
@@ -45,15 +45,13 @@
 		<thead>
 			<tr class="head">
 			  <th width="100"></th>
-			  <th width="100">Código</th>
+			  <th width="50">Código</th>
 			  <th width="300">Nome</th>
-			  <th width="200">CPF</th>
 			</tr>
 		</thead>
-		<tbody id="result_motorista"></tbody>
+		<tbody id="result"></tbody>
 		<tfoot>
 		   <tr>
-			  <td>&nbsp;</td>
 			  <td>&nbsp;</td>
 			  <td>&nbsp;</td>
 			  <td>&nbsp;</td>
@@ -61,7 +59,7 @@
 		</tfoot>
 		</table>
 			
-		<a href="motorista.html" target="frame_content"><button id="cmd_new_motorista" value="" type="button"> Novo</button></a>
+		<a href="assistencia.html" target="frame_content"><button id="cmd_new" value="" type="button"> Novo</button></a>
 	</div>
 	
 </div>

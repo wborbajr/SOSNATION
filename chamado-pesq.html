@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html charset="UTF-8"> 
 <head>
@@ -11,12 +11,13 @@
 <meta http-Equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/> 
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="css/forms.css"  /> 
+<link rel="stylesheet" href="css/sosnacoes.css" type="text/css" /> 
+<link rel="stylesheet" href="css/forms.css" type="text/css" /> 
 <!-- /css -->
 
 <!-- javascript -->
 <script type="text/javascript" src="js/jquery-1.6.2.min.js"> </script>
-<script type="text/javascript" src="appjs/session.action.js"></script>
+<script type="text/javascript" src="appjs/session.action.js"> </script>
 <script type="text/javascript" src="appjs/chamado-pesq.js"></script>
 <!-- /javascript -->
 
@@ -32,7 +33,7 @@
 			<tr>
 				<td><label>Nr. Chamado:</label></td>
 				<td width="60"><input type="text" id="nrpedido" value="" size="42" maxlength="10"/> 
-				<td><button id="cmd_search_chamado" value="" type="button"> Pesquisar</button></td>
+				<td><button id="cmd_search" value="" type="button"> Pesquisar</button></td>
 			</tr>
 
 		</tbody>
@@ -43,14 +44,18 @@
 		<table border="0" cellpadding="6" class="tbassist" frame="box">
 		<thead>
 			<tr class="head">
+			  <th width="100"></th>
+			  <th width="50">Código</th>
 			  <th width="100">Nr. Chamado</th>
 			  <th width="300">Assistência</th>
 			  <th width="100">Aceito</th>
 			</tr>
 		</thead>
-		<tbody id="result_chamado"></tbody>
+		<tbody id="result"></tbody>
 		<tfoot>
 		   <tr>
+			  <td>&nbsp;</td>
+			  <td>&nbsp;</td>
 			  <td>&nbsp;</td>
 			  <td>&nbsp;</td>
 			  <td>&nbsp;</td>
@@ -58,7 +63,7 @@
 		</tfoot>
 		</table>
 			
-		<button id="cmd_new_chamado" value="" type="button"> Novo</button>
+		<a href="chamado.html" target="frame_content"><button id="cmd_new" value="" type="button"> Novo</button></a>
 	</div>
 	
 </div>

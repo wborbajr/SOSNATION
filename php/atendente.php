@@ -20,7 +20,6 @@ switch($action) {
 	case 'delete':
 		delete();
 		break;
-	
 	default:
 }
 
@@ -33,14 +32,14 @@ function delete(){
 
 	// recover parameter
 	$nome 	= $_REQUEST['nome'];
-	$cpf 		= $_REQUEST['cpf'];
-	$id 		= $_REQUEST['id'];
+	$cpf 	= $_REQUEST['cpf'];
+	$id 	= $_REQUEST['id'];
 
 	$ip		=	$_SERVER['REMOTE_ADDR'];
-	$data		= 	date('Y-m-d');
-	$hora		= 	date('H:i:s');
+	$data	= 	date('Y-m-d');
+	$hora	= 	date('H:i:s');
 
-	$sql  = "SELECT atendente FROM `serviceorder` WHERE motorista = '$id'";
+	$sql  = "SELECT atendente FROM `serviceorder` WHERE atendente = '$id'";
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
@@ -52,7 +51,7 @@ function delete(){
 	if(mysql_affected_rows() >= 1) {
 		echo json_encode(array('status' => 300)); 
 	} else {
-		$sql  = "DELETE FROM `motorista` WHERE id = '$id'";
+		$sql  = "DELETE FROM `atendente` WHERE id = '$id'";
 		
 		// open connection to MySQL-server
 		$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
@@ -66,7 +65,7 @@ function delete(){
 		} else {
 			echo json_encode(array(
 				'status' => 200,
-				utf8_encode('msg')	=> 'ERRO: ao apagar registro do MOTORISTA.'
+				utf8_encode('msg')	=> 'ERRO: ao apagar registro do ATENDENTE.'
 			));
 			exit;
 		}
@@ -84,18 +83,17 @@ function doSave(){
 
 	// recover parameter
 	$nome 	= $_REQUEST['nome'];
-	$cpf 		= $_REQUEST['cpf'];
-	$id 		= $_REQUEST['id'];
-	$percent = $_REQUEST['percent'];
+	$cpf 	= $_REQUEST['cpf'];
+	$id 	= $_REQUEST['id'];
 
 	$ip		=	$_SERVER['REMOTE_ADDR'];
 	$data	= 	date('Y-m-d');
 	$hora	= 	date('H:i:s');
 
 	if($id == null){
-		$sql  = "INSERT INTO `motorista` (nome, cpf, percent) VALUES ('$nome', '$cpf', '$percent') ";
+		$sql  = "INSERT INTO `atendente` (nome, cpf) VALUES ('$nome', '$cpf') ";
 	}else {
-		$sql  = "UPDATE `motorista` SET nome = '$nome', cpf = '$cpf', percent = '$percent' WHERE id = '$id'";
+		$sql  = "UPDATE `atendente` SET nome = '$nome', cpf = '$cpf' WHERE id = '$id'";
 	}
 	
 	// open connection to MySQL-server
@@ -131,7 +129,7 @@ function getAll(){
 	$time		= 	date('H:i:s');
 	
 	// validate Login
-	$sql  = "SELECT * FROM `motorista` ";
+	$sql  = "SELECT * FROM `atendente` ";
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
@@ -165,9 +163,9 @@ function doSearch(){
 	$nome = $_REQUEST['nome'];
 	
 	if(isset($nome)){
-		$sql  = "SELECT * FROM `motorista` WHERE LOWER(nome) LIKE LOWER('%$nome%')";
+		$sql  = "SELECT * FROM `atendente` WHERE LOWER(nome) LIKE LOWER('%$nome%')";
 	} else {
-		$sql  = "SELECT * FROM `motorista`";
+		$sql  = "SELECT * FROM `atendente`";
 	}
 
 	// open connection to MySQL-server
@@ -201,7 +199,7 @@ function findByCode(){
 	// recover parameter
 	$id = $_REQUEST['id'];
 	
-	$sql  = "SELECT * FROM `motorista` WHERE id = '$id'";
+	$sql  = "SELECT * FROM `atendente` WHERE id = '$id'";
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);

@@ -1,6 +1,6 @@
 var searchMotorista = {
 	init : function(){
-		$('#cmd_search_motorista').live('click',function(){
+		$('#cmd_search').live('click',function(){
 			// values to send to backend
 			var dataString = 'action=search'+
 			'&nome='	+ $('#search').val();
@@ -21,27 +21,22 @@ var searchMotorista = {
 							content += '<td>'+data[x].id+'</td>';
 							content += '<td>'+data[x].nome+'</td>';
 							content += '<td>'+data[x].cpf+'</td>';
+							content += '<td>'+data[x].percent.replace('.',',')+'</td>';
 							content += '</tr>';
 						}
 					}
 					
-					$("#result_motorista").html(content);
-				}
-				,
-				error: function(XMLHttpRequest, ajaxOptions, thrownError){
-					alert(XMLHttpRequest.status);
-					alert(thrownError);
-					alert(ajaxOptions + " [ " + thrownError + "] ");
+					$("#result").html(content);
 				}
 			});
-
 		});
 	}
 };
 
+/*
 var newMotorista = {
 	init : function(){
-		$("#cmd_new_motorista").live("click",function(){
+		$("#cmd_new").live("click",function(){
 			$("#content").load("motorista.html", function(response, status, xhr) {
 			  if (status == "error") {
 			    var msg = "Sorry but there was an error: ";
@@ -51,12 +46,12 @@ var newMotorista = {
 		});
 	}
 };
-
+*/
 
 // onLoad()
 $(document).ready(function() {
 
-	newMotorista.init();
+	//newMotorista.init();
 	
 	searchMotorista.init();
 });

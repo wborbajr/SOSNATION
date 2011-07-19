@@ -11,6 +11,9 @@ switch($action) {
 	case 'search':
 		doSearch();
 		break;
+	case 'find':
+		findByCode();
+		break;
 	default:
 }
 
@@ -22,8 +25,9 @@ function doSave(){
 	$functions = new Functions();
 
 	// recover parameter
+	$id 				= $_REQUEST['id'];
 	$cliente 		= $_REQUEST['cliente'];
-	$fone   		= $_REQUEST['fone'];
+	$fone   			= $_REQUEST['fone'];
 	$veiculo 		= $_REQUEST['veiculo'];
 	$cor   			= $_REQUEST['cor'];
 	$placa 			= $_REQUEST['placa'];
@@ -36,7 +40,7 @@ function doSave(){
 	$chklist   		= $_REQUEST['chklist'];
 	$assistencia 	= $_REQUEST['assistencia'];
 	$nrpedido 		= $_REQUEST['nrpedido'];
-	$hacionamento  	= $_REQUEST['hacionamento'];
+	$hacionamento  = $_REQUEST['hacionamento'];
 	$hconclusao   	= $_REQUEST['hconclusao'];
 	$folha 			= $_REQUEST['folha'];
 	$servico   		= $_REQUEST['servico'];
@@ -44,26 +48,34 @@ function doSave(){
 	$frota   		= $_REQUEST['frota'];
 	$observacao 	= $_REQUEST['observacao'];
 	$atendente		= $_REQUEST['atendente'];
-	$aceito			= dataToDB($_REQUEST['aceito']);
+	$notafiscal		= $_REQUEST['notafiscal'];
+	$previsao		= $_REQUEST['previsao'];
+	$hpassado		= $_REQUEST['hpassado'];
+	$aceito			= $_REQUEST['aceito'] == null ? null : dataToDB($_REQUEST['aceito']);
 
-	echo $aceito;
-	
 	$ip		=	$_SERVER['REMOTE_ADDR'];
 	$data	= 	date('Y-m-d');
 	$hora	= 	date('H:i:s');
 
 	// validate Login
-	$sql  = "INSERT INTO `serviceorder` (cliente, fone, veiculo, cor, placa, local, ";
-	$sql .= "destino, valor, kminicial, kmfinal, pedagio, chklist, nrpedido, ";
-	$sql .= "hacionamento, hconclusao, folha, atendente, motorista, frota, observacao, ip, data, hora, assistencia, aceito) ";
-	$sql .= " VALUES ";
-	$sql .= " ('$cliente','$fone', '$veiculo', '$cor', '$placa', '$local', '$destino', ";
-	$sql .= "'$valor', '$kminicial', '$kmfinal', '$pedagio', '$chklist', '$nrpedido', ";
-	$sql .= "'$hacionamento', '$hconclusao', '$folha', '$atendente', '$motorista', '$frota', ";
-	$sql .= "'$observacao', '$ip', '$data', '$hora', '$assistencia', '$aceito') ";
-	
-	echo $sql;
-	
+	if($id == null){
+		$sql  = "INSERT INTO `serviceorder` (cliente, fone, veiculo, cor, placa, local, ";
+		$sql .= "destino, valor, kminicial, kmfinal, pedagio, chklist, nrpedido, ";
+		$sql .= "hacionamento, hconclusao, folha, atendente, motorista, frota, observacao, ip, data, hora, assistencia, aceito, ";
+		$sql .= " notafiscal, servico, hpassado, previsao )";
+		$sql .= " VALUES ";
+		$sql .= " ('$cliente','$fone', '$veiculo', '$cor', '$placa', '$local', '$destino', ";
+		$sql .= "'$valor', '$kminicial', '$kmfinal', '$pedagio', '$chklist', '$nrpedido', ";
+		$sql .= "'$hacionamento', '$hconclusao', '$folha', '$atendente', '$motorista', '$frota', ";
+		$sql .= "'$observacao', '$ip', '$data', '$hora', '$assistencia', '$aceito', '$notafiscal', '$servico', '$hpassado', '$previsao') ";
+	} else {
+		$sql  = "UPDATE `serviceorder` SET cliente = '$cliente', fone = '$fone', veiculo = '$veiculo', cor = '$cor', ";
+		$sql .= "placa = '$placa', local = '$local',	destino = '$destino', valor = '$valor', kminicial = '$kminicial', kmfinal = '$kmfinal', ";
+		$sql .= "pedagio = '$pedagio', chklist = '$chklist', nrpedido = '$nrpedido', hacionamento = '$hacionamento', hconclusao = '$hconclusao', ";
+		$sql .= "folha = '$folha', atendente = '$atendente', motorista = '$motorista', frota = '$frota', observacao = '$observacao', assistencia = '$assistencia', ";
+		$sql .= "aceito = '$aceito' WHERE id = '$id'";
+	}
+		
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
 	// select active database
@@ -93,10 +105,47 @@ function dataToDB($data)
 
 	//retorna a string da ordem correta, formatada
 	return $data;
-}
- 
+} 
 
 function doSearch(){
+	@require_once ("include/functions.inc.php");
+	@require_once ("include/config.inc.php");
+	
+	$functions 	= new Functions();
+	
+	$ipaddress	= $_SERVER['REMOTE_ADDR'];
+	$date		= date('d/m/Y');
+	$time		= date('H:i:s');
+	
+	// recover parameter
+	$nrpedido = $_REQUEST['nrpedido'];
+	
+	if($nrpedido == null) {
+		$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
+		$sql .= " WHERE s.assistencia = a.id ORDER BY s.assistencia, s.nrpedido";
+	} else {
+		$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
+		$sql .= " WHERE s.assistencia = a.id AND id = '$id'";
+	}
+	
+	// open connection to MySQL-server
+	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
+	
+	// select active database
+	mysql_select_db($DBname, $DBconn);
+	
+	// use SQL query
+	$result = mysql_query($sql, $DBconn);
+	
+	$return = array();
+	while ($dados = mysql_fetch_assoc($result)) {
+		array_push($return, $dados);
+	}
+
+	echo json_encode($return);
+}
+
+function findByCode(){
 	@require_once ("include/functions.inc.php");
 	@require_once ("include/config.inc.php");
 	
@@ -107,15 +156,10 @@ function doSearch(){
 	$time		= 	date('H:i:s');
 	
 	// recover parameter
-	$nrpedido = &$_REQUEST['nrpedido'];
+	$id = $_REQUEST['id'];
 	
-	if($nrpedido == null) {
-		$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
-		$sql .= " WHERE s.assistencia = a.id ORDER BY s.assistencia, s.nrpedido";
-	} else {
-		$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
-		$sql .= " WHERE s.assistencia = a.id AND nrpedido = '$nrpedido'";
-	}
+	$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
+	$sql .= " WHERE s.assistencia = a.id AND s.id = '$id'";
 	
 	// open connection to MySQL-server
 	$DBconn = mysql_connect($DBhost,$DBuser,$DBpass);
@@ -134,6 +178,5 @@ function doSearch(){
 	echo json_encode($return);
 
 }
-
 
 ?>

@@ -4,7 +4,7 @@
 <head>
 <title></title>
 
-<meta http-equiv="Content-Type" content="text/html; UTF-8" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <meta http-Equiv="Cache-Control" content="no-cache, no-store, must-revalidate, Post-Check=0, Pre-Check=0"/> 
 <meta http-Equiv="Pragma" content="no-cache, no-store, must-revalidate"/> 
 <meta http-Equiv="Expires" content="-1"/> 
@@ -18,17 +18,19 @@
 <!-- javascript -->
 <script src="js/jquery-1.6.2.min.js" type="text/javascript"> </script>
 <script src="appjs/session.action.js" type="text/javascript"> </script>
-<script src="appjs/motorista.js" type="text/javascript"> </script>
+<script src="appjs/assistencia.js" type="text/javascript"> </script>
 <!-- /javascript -->
 
 </head>
 
 <body>
 
+<div class="messagebox" style="display:none" id="messageBox"></div>
+
 <div id="dv_screen">
-	a s s i s t e n c i a
+	a s s i s t ê n c i a
 	
-<form id="frm_login" action="" method="POST">
+<form id="frm_assistencia" action="" method="POST">
 	<table border="0" cellpadding="2" cellspacing="2">
 		<tbody>
 			<tr>
@@ -36,14 +38,10 @@
 				<td ><input type="text" id="nome" value="" size="42" maxlength="40"/> 
 			</tr>
 			<tr>
-				<td><label>CPF:</label></td>
-				<td ><input type="text" id="cpf" value="" size="16" maxlength="14"/> 
-			</tr>
-			
-			<tr>
 				<td><button id="cmd_salvar" value="" type="button"> Gravar</button></td>
+				<td><button id="cmd_delete" value="" type="button"> Apagar</button></td>
 				<td>
-				<a href="motorista-pesq.html" target="frame_content"><button id="cmd_back" value="" type="button"> Voltar</button></a>
+				<a href="assistencia-pesq.html" target="frame_content"><button id="cmd_back" value="" type="button"> Voltar</button></a>
 				</td>
 			</tr>
 		</tbody>

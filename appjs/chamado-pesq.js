@@ -1,11 +1,11 @@
 var searchChamado = {
 	init : function(){
-		$('#cmd_search_chamado').live('click',function(){
+		$('#cmd_search').live('click',function(){
 			// values to send to backend
 			var dataString = 'action=search'+
 			'&nrpedido='	+ $('#nrpedido').val();
 			
-			// save
+			// search
 			$.ajax({
 				type: "POST",
 				url: "php/chamado.php",
@@ -13,10 +13,13 @@ var searchChamado = {
 				data: dataString,				
 				timeout: 2000,
 				success: function(data){
-					if(data.length >= 1){
+					var returnSize = data.length;
+					if(returnSize >= 1){
 						var content = '';
-						for(x=0; x<data.length; x++){
+						for(x=0; x<returnSize; x++){
 							content += '<tr class="even">';
+							content += '<td><a href="chamado.html?'+data[x].id+'" target="frame_content">Detalhe</a></td>';							
+							content += '<td>'+data[x].id+'</td>';
 							content += '<td>'+data[x].nrpedido+'</td>';
 							content += '<td>'+data[x].nome+'</td>';
 							content += '<td>'+data[x].dtaceito+'</td>';
@@ -24,19 +27,21 @@ var searchChamado = {
 						}
 					}
 					
-					$("#dv_result").html(content);
-				},
-				error: function(XMLHttpRequest, ajaxOptions, thrownError){
-					alert(XMLHttpRequest.status);
-					alert(thrownError);
-					alert(ajaxOptions + " [ " + thrownError + "] ");
+					$("#result").html(content);
 				}
+//				,
+//				error: function(XMLHttpRequest, ajaxOptions, thrownError){
+//					alert(XMLHttpRequest.status);
+//					alert(thrownError);
+//					alert(ajaxOptions + " [ " + thrownError + "] ");
+//				}
 			});
 
 		});
 	}
 };
 
+/*
 var newChamado = {
 	init : function(){
 		$("#cmd_new_chamado").live("click",function(){
@@ -49,10 +54,11 @@ var newChamado = {
 		});
 	}
 };
+*/
 
 // onLoad()
 $(document).ready(function() {
-	newChamado.init();
+	//newChamado.init();
 	
 	searchChamado.init();
 });

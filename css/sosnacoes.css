@@ -69,6 +69,21 @@ height: 30px;
 background-color: #7799bb;
 }
 
+#version
+{
+position: absolute;
+height: 30px;
+width: 150px;
+background-color: #7799bb;
+right: 105px;
+font-family: verdana, arial, sans-serif;
+font-size: 13px;
+line-height: 30px;
+border-color: #ffaacc;
+border-left: 1px dotted;
+border-right: 1px dotted;
+}
+
 #userinfo
 {
 position: absolute;
