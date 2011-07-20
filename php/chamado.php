@@ -125,7 +125,7 @@ function doSearch(){
 		$sql .= " WHERE s.assistencia = a.id ORDER BY s.assistencia, s.nrpedido";
 	} else {
 		$sql  = "SELECT s.*, a.nome, DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito FROM `serviceorder` s, assistencia a ";
-		$sql .= " WHERE s.assistencia = a.id AND id = '$id'";
+		$sql .= " WHERE s.assistencia = a.id AND nrpedido = '$nrpedido'";
 	}
 	
 	// open connection to MySQL-server

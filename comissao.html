@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html charset="UTF-8"> 
+<head>
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta http-Equiv="Cache-Control" content="no-cache, no-store, must-revalidate, Post-Check=0, Pre-Check=0"/> 
+<meta http-Equiv="Pragma" content="no-cache, no-store, must-revalidate"/> 
+<meta http-Equiv="Expires" content="-1"/> 
+<meta http-Equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/> 
+
+<!-- css -->
+<link rel="stylesheet" href="css/sosnacoes.css" type="text/css" /> 
+<link rel="stylesheet" href="css/forms.css" type="text/css" /> 
+<!-- /css -->
+
+<!-- javascript -->
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"> </script>
+<script type="text/javascript" src="js/jquery.maskedinput-1.3.js"> </script>
+<script type="text/javascript" src="appjs/session.action.js"> </script>
+<script type="text/javascript" src="appjs/comissao.js"></script>
+<!-- /javascript -->
+
+</head>
+
+<body>
+
+<div id="dv_screen">
+	r e l a t ó r i o &nbsp; d e &nbsp; c o m i s s ã o
+	
+	<table border="0" cellpadding="2" cellspacing="2">
+		<tbody>
+			<tr>
+				<td><label>Motorista:</label></td>
+				<td><span id="dv_motorista"></span></td>
+			</tr>
+			<tr>
+				<td><label>Data Inicial:</label></td>
+				<td><input type="text" id="dtini" value="" size="12" maxlength="10"/></td>
+				<td><label>Data Final:</label></td>
+				<td><input type="text" id="dtfin" value="" size="12" maxlength="10"/></td>
+				<td><button id="cmd_calc" value="" type="button"> Pesquisar</button></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div id="dv_list">
+		<!-- search result -->
+		<table border="0" cellpadding="6" class="tbassist" frame="box" id="tb_search">
+		<thead>
+			<tr class="head">
+			  <th width="50">Data</th>
+			  <th width="100">Valor</th>
+			  <th width="100">Comissão</th>
+			</tr>
+		</thead>
+		<tbody id="result"></tbody>
+		<tfoot>
+		   <tr>
+			  <td>TOTAL</td>
+			  <td><span id="sum_valor"></span></td>
+			  <td><span id="sum_comis"></span></td>
+		   </tr>
+		</tfoot>
+		</table>
+			
+		<button id="cmd_print" value="" type="button"> Imprimir</button>
+	</div>
+	
+</div>
+</body>
+</html>

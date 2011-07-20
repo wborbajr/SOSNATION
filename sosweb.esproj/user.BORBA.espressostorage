@@ -21,7 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Volumes/Projects/sites/sosweb</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/appjs</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
@@ -32,13 +32,19 @@
 		<array>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/motorista.js</string>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/comissao.js</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
 			<dict>
 				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/index.html</string>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/php/comissao.php</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Volumes/Projects/sites/sosweb/comissao.html</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
