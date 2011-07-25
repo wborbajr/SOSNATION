@@ -37,7 +37,7 @@ function calculate(){
 	$data	= 	date('Y-m-d');
 	$hora	= 	date('H:i:s');
 
-	$sql  = "SELECT DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito, s.valor, m.nome, m.percent, (s.valor*(m.percent/100)) as total ";
+	$sql  = "SELECT DATE_FORMAT(aceito,'%d/%m/%Y') AS dtaceito, s.valor, m.nome, m.percent, s.veiculo, s.placa, (s.valor*(m.percent/100)) as total ";
 	$sql .= "FROM `serviceorder` s, `motorista` m ";
 	$sql .= "WHERE s.motorista = '$motorista' ";
 	$sql .= "AND s.motorista = m.id ";

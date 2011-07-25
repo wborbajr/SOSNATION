@@ -59,15 +59,16 @@ var calculate = {
 						var content = '';
 						for(x=0; x<returnSize; x++){
 						
-							var dtval = parseFloat(data[x].valor);
+//							var dtval = parseFloat(data[x].valor);
 							var dttot = parseFloat(data[x].total);
 						
-							sumvalor += dtval;
+//							sumvalor += dtval;
 							sumcomis += dttot;
 							
 							content += '<tr class="even">';
 							content += '<td>'+data[x].dtaceito+'</td>';
-							content += '<td>'+dtval+'</td>';
+							content += '<td>'+data[x].veiculo+'</td>';
+							content += '<td>'+data[x].placa+'</td>';
 							content += '<td>'+dttot+'</td>';
 							content += '</tr>';
 							
@@ -75,7 +76,7 @@ var calculate = {
 					}
 					
 					$("#result").html(content);
-					$("#sum_valor").html(sumvalor);
+//					$("#sum_valor").html(sumvalor);
 					$("#sum_comis").html(sumcomis);
 				}
 //				,

@@ -7,13 +7,13 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{1920, 1003}</string>
+		<string>{1849, 1001}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Volumes/Projects/sites/sosweb/sosweb.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{-1920, 800}</string>
+		<string>{-1894, 800}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -22,34 +22,12 @@
 		<key>ExpandedURLs</key>
 		<array>
 			<string>file://localhost/Volumes/Projects/sites/sosweb/appjs</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/assets</string>
+			<string>file://localhost/Volumes/Projects/sites/sosweb/php</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
 	<false/>
-	<key>com.macrabbit.Espresso.Workspace.Tabs</key>
-	<dict>
-		<key>Tabs</key>
-		<array>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/appjs/comissao.js</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/php/comissao.php</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-			<dict>
-				<key>DocumentURL</key>
-				<string>file://localhost/Volumes/Projects/sites/sosweb/comissao.html</string>
-				<key>StateType</key>
-				<string>DefaultTab</string>
-			</dict>
-		</array>
-	</dict>
 	<key>com.macrabbit.Espresso.WorkspaceTabs.DisclosureCollapsed</key>
 	<false/>
 </dict>
