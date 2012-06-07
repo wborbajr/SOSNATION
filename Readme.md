@@ -1,6 +1,6 @@
  [![Build Status](https://secure.travis-ci.org/visionmedia/jade.png)](http://travis-ci.org/visionmedia/jade)
 
-# B+ Tecnologia da Informação - OdontoFINE
+# B+ Tecnologia da Informação - SOSNações
 
  OdontoFINE CRM.
 
