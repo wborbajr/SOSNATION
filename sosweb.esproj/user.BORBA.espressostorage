@@ -9,7 +9,7 @@
 		<key>ContentSize</key>
 		<string>{1849, 1001}</string>
 		<key>ProjectURL</key>
-		<string>file://localhost/Volumes/Projects/sites/sosweb/sosweb.esproj/</string>
+		<string>file://localhost/Volumes/Projects/web/sosweb/sosweb.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
@@ -21,9 +21,7 @@
 	<dict>
 		<key>ExpandedURLs</key>
 		<array>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/appjs</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/assets</string>
-			<string>file://localhost/Volumes/Projects/sites/sosweb/php</string>
+			<string>file://localhost/Volumes/Projects/web/sosweb/css</string>
 		</array>
 	</dict>
 	<key>com.macrabbit.Espresso.Publisher.DisclosureCollapsed</key>
